@@ -8,9 +8,12 @@ import {
   View,
 } from 'react-native';
 
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
+import DiceOne from '../assets/DiceOne.png' //Refer to "index.d.ts" file for IMPORTANT information regarding the importing of images, and declaring their data type as a module.
+import DiceTwo from '../assets/DiceTwo.png'
+import DiceThree from '../assets/DiceThree.png'
+import DiceFour from '../assets/DiceFour.png'
+import DiceFive from '../assets/DiceFive.png'
+import DiceSix from '../assets/DiceSix.png'
 
 function App(): JSX.Element {
 
