@@ -11,6 +11,8 @@ import {
   View,
 } from 'react-native';
 
+import ReactNativeHapticFeedback from "react-native-haptic-feedback";
+
 import DiceOne from '../assets/DiceOne.png' //Refer to "index.d.ts" file for IMPORTANT information regarding the importing of images, and declaring their data type as a module.
 import DiceTwo from '../assets/DiceTwo.png'
 import DiceThree from '../assets/DiceThree.png'
@@ -45,6 +47,13 @@ just be a random string or something. Its a very good way to avoid errors. The D
 and established in line 20. 
 */
 
+const options = {
+  enableVibrateFallback: true,
+  ignoreAndroidSystemSettings: false,
+};
+//Above is the options copied form https://github.com/mkuczera/react-native-haptic-feedback
+//for the haptic feedback stuff.
+
 function App(): JSX.Element {
 
   const [diceImage, setDiceImage] = useState<ImageSourcePropType>(DiceOne)
@@ -78,6 +87,8 @@ function App(): JSX.Element {
         setDiceImage(DiceOne)
         break;
     }
+
+    ReactNativeHapticFeedback.trigger("impactLight", options);
   }
   /*
   The above method is extremely simple. It just assigns a number between 1 and 6 to the variable
@@ -87,6 +98,8 @@ function App(): JSX.Element {
 
   Its notable that the default case gets us setting the dice image to DiceOne, which is itself
   the default image, just to make sure nothing unwanted happens.
+
+  Then, in line 91, the haptic feedback is triggered.
   */
 
   return (
