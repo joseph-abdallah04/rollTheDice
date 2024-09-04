@@ -2,6 +2,8 @@
 import React from 'react';
 import type {PropsWithChildren} from 'react';
 import {
+  Image,
+  ImageSourcePropType,
   SafeAreaView,
   StyleSheet,
   Text,
@@ -14,6 +16,21 @@ import DiceThree from '../assets/DiceThree.png'
 import DiceFour from '../assets/DiceFour.png'
 import DiceFive from '../assets/DiceFive.png'
 import DiceSix from '../assets/DiceSix.png'
+
+type DiceProps = PropsWithChildren<{
+  imageUrl: ImageSourcePropType
+}>
+/*
+Above declares the type (DiceProps) of imageUrl, as ImageSourcePropType, so that whenever you declare a dice component, it basically allows you to directly pass on images. This is a good approach to use as it is less error prone. 
+*/
+
+const Dice = ({imageUrl}: DiceProps):JSX.Element => {
+  return (
+    <View>
+      <Image style={styles.diceImage} source={imageUrl} />
+    </View>
+  )
+}
 
 function App(): JSX.Element {
 
